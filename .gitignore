@@ -1,0 +1,8 @@
+
+# pyinstaller
+__pycache__/
+build/
+dist/
+main.spec
+
+credential.ini
