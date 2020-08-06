@@ -30,6 +30,7 @@ JSON_URL = 'https://panda.ecs.kyoto-u.ac.jp/direct/gradebook/my.json'
 CONFIG_PATH = './credential.ini'
 
 def get_data(username, password):
+	print('ログイン中')
 	session = requests.session()
 	res = session.get(LOGIN_URL)
 	lt = re.search(r'<input type="hidden" name="lt" value="(.+?)".*>', res.text).group(1)
@@ -44,6 +45,7 @@ def get_data(username, password):
 	}
 
 	res = session.post(LOGIN_URL, data=login_info)
+	print('データをダウンロード中')
 	res = session.get(JSON_URL)
 	if res.status_code != requests.codes.ok:
 		print('ログインに失敗しました。')
